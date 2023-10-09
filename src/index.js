@@ -1,13 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import "react-toastify/dist/ReactToastify.css";
+import $ from "jquery";
+import Popper from "popper.js";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import AuthProvider from "./store/auth/AuthProvider";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Footer from "./components/UI/Footer/Footer";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+import { router } from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <RouterProvider router={router} />
+      <Footer />
+    </AuthProvider>
   </React.StrictMode>
 );
 
